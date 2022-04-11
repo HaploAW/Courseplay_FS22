@@ -288,6 +288,13 @@ end
 function CpAIJob:showNotification(aiMessage)
 	if not g_Courseplay.globalSettings.infoTextHudActive:getValue() then 
 		CpAIJob:superClass().showNotification(self, aiMessage)
+		return
+	end
+	local releaseMessage, hasFinished, event = g_infoTextManager:getInfoTextDataByAIMessage(aiMessage)
+	local vehicle = self:getVehicle()
+	--- Makes sure the message is shown, when a player is in the vehicle.
+	if releaseMessage and vehicle:getIsEntered() then 
+		g_currentMission:showBlinkingWarning(releaseMessage:getText(), 5000)
 	end
 end
 
