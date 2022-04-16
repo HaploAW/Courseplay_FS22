@@ -242,6 +242,9 @@
 		<text name="CP_global_setting_title"															text="Globalainställningar"/>
 		<text name="CP_global_setting_subTitle_general"													text="Standardinställningar"/>
 
+		<text name="CP_global_setting_expertModeActive_title" 											text="Expert mode "/>
+		<text name="CP_global_setting_expertModeActive_tooltip" 										text="Enables/disables expert mode with additional features."/>
+
 		<text name="CP_global_setting_wageModifier_title" 												text="CP förarens lön"/>
 		<text name="CP_global_setting_wageModifier_tooltip" 											text="CP-förarens lön i procent av normala arbetarlöner (AI lön)"/>
 
@@ -251,6 +254,12 @@
 		<text name="CP_global_setting_autoRepair_less_than_25" 											text="&lt; 25%"/>
 		<text name="CP_global_setting_autoRepair_less_than_70" 											text="&lt; 70%"/>
 		<text name="CP_global_setting_autoRepair_always" 												text="Håll den på 100%"/>
+
+		<text name="CP_global_setting_fuelThreshold_title" 												text="Fuel threshold"/>
+		<text name="CP_global_setting_fuelThreshold_tooltip" 											text="Driver will be released, if the fuel percentage is less."/>
+
+		<text name="CP_global_setting_brokenThreshold_title" 											text="Broken threshold"/>
+		<text name="CP_global_setting_brokenThreshold_tooltip" 											text="Driver will be released, if the vehicle or an implement is more broken. 100% is off."/>
 
 		<text name="CP_global_setting_subTitle_userSettings"											text="Användarinställningar"/>
 
@@ -324,6 +333,7 @@
 		<text name="CP_infoTexts_needsUnloading"  														text="Needs to be unloaded"/>
 		<text name="CP_infoTexts_workFinished"															text="Finished work"/>
 		<text name="CP_infoTexts_outOfMoney"															text="Ouf of money"/>
+		<text name="CP_infoTexts_waitForRainToFinish"													text="Waiting for rain to finish"/>
 		
 	<!--Custom Field-->
 		<text name="CP_customFieldManager_confirm_save"													text="Vill du spara den inspelade kursen som anpassat fält %s?"/>

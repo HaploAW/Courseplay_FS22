@@ -114,7 +114,7 @@
 		<text name="CP_vehicle_setting_stopForUnload_tooltip" 											text="始终停车执行卸载。"/>
 
 		<text name="CP_vehicle_setting_selfUnload_title" 												text="收割机自助卸载"/>
-		<text name="CP_vehicle_setting_selfUnload_tooltip" 							  					text="收割机自动在田间或会合附近的拖车进行卸载，不支持多工具模式。"/>
+		<text name="CP_vehicle_setting_selfUnload_tooltip" 							  					text="收割机自动在田间或会合附近的拖车进行卸载。"/>
 
 		<text name="CP_vehicle_setting_unloadOnFirstHeadland_title" 									text="在第一个地头卸载"/>
 		<text name="CP_vehicle_setting_unloadOnFirstHeadland_tooltip" 				  					text="收割机将在第一个地头呼叫拖车。"/>
@@ -240,6 +240,9 @@
 		<text name="CP_global_setting_title"															text="全局设置"/>
 		<text name="CP_global_setting_subTitle_general"													text="基本设置"/>
 
+		<text name="CP_global_setting_expertModeActive_title" 											text="专家模式"/>
+		<text name="CP_global_setting_expertModeActive_tooltip" 										text="启用/禁用具有附加功能的专家模式。"/>
+
 		<text name="CP_global_setting_wageModifier_title" 												text="Cp帮手工资"/>
 		<text name="CP_global_setting_wageModifier_tooltip" 											text="Cp帮手工资占普通帮手工资的百分比。"/>
 
@@ -249,6 +252,12 @@
 		<text name="CP_global_setting_autoRepair_less_than_25" 											text="&lt; 25%"/>
 		<text name="CP_global_setting_autoRepair_less_than_70" 											text="&lt; 70%"/>
 		<text name="CP_global_setting_autoRepair_always" 												text="保持100%"/>
+
+		<text name="CP_global_setting_fuelThreshold_title" 												text="燃料临界值"/>
+		<text name="CP_global_setting_fuelThreshold_tooltip" 											text="如果燃料剩余量过低，司机将停止工作。"/>
+
+		<text name="CP_global_setting_brokenThreshold_title" 											text="损坏临界值"/>
+		<text name="CP_global_setting_brokenThreshold_tooltip" 											text="如果车辆或工具损坏过多，司机将停止工作。100%为关闭。"/>
 
 		<text name="CP_global_setting_subTitle_userSettings"											text="用户设置"/>
 
@@ -322,7 +331,8 @@
 		<text name="CP_infoTexts_needsFilling"  														text="需要重新填充"/>
 		<text name="CP_infoTexts_needsUnloading"  														text="需要卸载"/>
 		<text name="CP_infoTexts_workFinished"															text="完成工作"/>
-		<text name="CP_infoTexts_outOfMoney"															text="Ouf of money"/>
+		<text name="CP_infoTexts_outOfMoney"															text="资金不足"/>
+		<text name="CP_infoTexts_waitForRainToFinish"													text="等待雨停"/>
 		
 	<!--Custom Field-->
 		<text name="CP_customFieldManager_confirm_save"													text="是否要将录制的任务保存为自定义田地 %s?"/>

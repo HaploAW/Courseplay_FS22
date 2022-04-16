@@ -238,6 +238,9 @@
 		<text name="CP_global_setting_title"															text="Globální nastavení"/>
 		<text name="CP_global_setting_subTitle_general"													text="Základní nastavení."/>
 
+		<text name="CP_global_setting_expertModeActive_title" 											text="Expert mode "/>
+		<text name="CP_global_setting_expertModeActive_tooltip" 										text="Enables/disables expert mode with additional features."/>
+
 		<text name="CP_global_setting_wageModifier_title" 												text="Mzdy pracovníků"/>
 		<text name="CP_global_setting_wageModifier_tooltip" 											text="Mzdy CP pracovníků jako procento mzdy normálního pracovníka."/>
 
@@ -247,6 +250,12 @@
 		<text name="CP_global_setting_autoRepair_less_than_25" 											text="&lt; 25%"/>
 		<text name="CP_global_setting_autoRepair_less_than_70" 											text="&lt; 70%"/>
 		<text name="CP_global_setting_autoRepair_always" 												text="Udržovat v dobrém stavu"/>
+
+		<text name="CP_global_setting_fuelThreshold_title" 												text="Hladina paliva"/>
+		<text name="CP_global_setting_fuelThreshold_tooltip" 											text="Řidič bude uvolněn, pokud je procento paliva nižší."/>
+
+		<text name="CP_global_setting_brokenThreshold_title" 											text="Hodnota opotřebení"/>
+		<text name="CP_global_setting_brokenThreshold_tooltip" 											text="Řidič bude propuštěn, pokud je vozidlo nebo nářadí více rozbité. 100% je vypnuto."/>
 
 		<text name="CP_global_setting_subTitle_userSettings"											text="Uživatelské nastavení"/>
 
@@ -319,7 +328,8 @@
 		<text name="CP_infoTexts_needsFilling"  														text="Je třeba doplnit"/>
 		<text name="CP_infoTexts_needsUnloading"  														text="Je třeba vyložit"/>
 		<text name="CP_infoTexts_workFinished"															text="Dokončil práci"/>
-		<text name="CP_infoTexts_outOfMoney"															text="Ouf of money"/>
+		<text name="CP_infoTexts_outOfMoney"															text="Došly peníze"/>
+		<text name="CP_infoTexts_waitForRainToFinish"													text="Waiting for rain to finish"/>
 		
 	<!--Custom Field-->
 		<text name="CP_customFieldManager_confirm_save"													text="Chcete uložit zaznamenaný kurz jako vlastní pole %s?"/>
