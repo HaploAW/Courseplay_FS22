@@ -349,6 +349,27 @@
 		<text name="CP_help_title"																		text="Courseplay"/>
 		<!--This stays blank and is just to create blank spots for better overview in the menu-->
 		<text name="CP_help_page_blank"																	text=""/>
+		<!--General-->
+		<text name="CP_help_page_General_title"															text="Informação Geral"/>
+		<text name="CP_help_page_GeneralBase_text"														text="
+Courseplay permite gerar rotas no campo com recursos adicionais, por exemplo: cabeceiras.
+Também possibilita o uso de enfardadeiras e forrageiras, que podem ser enviadas na mesma rota, como colheitadeira de grama.
+Outra grande característica é a coleta ou embalagem de fardos no campo.
+Novo com esta iteração do CP é o trabalho de campo com vinhas.
+Os rotas de campo podem ser configurados no modo multi implementos, o que permite o uso de até 5 motoristas trabalhando em um comboio no mesmo campo.
+Também é possível que a colheitadeira seja descarregada em um trailer perto do campo automaticamente..
+As bordas de campo customizado podem ser atribuídas para uso de rotas, por exemplo: no caso de uma área, que não é reconhecida como um campo normal..
+Por fim, o CP possui uma interface para o Autodrive, que permite o reabastecimento de uma semeadora em um silo próximo ou descarregar uma carreta e assim por diante.
+
+Para mais informações, visite nosso github: https://github.com/Courseplay/Courseplay_FS22.
+Lá você pode obter ajuda ou relatar qualquer problema que tenha enfrentado.
+Por fim, agradecemos a todos os tradutores e nossa comunidade por relatar bugs, fornecer feedback de uso e novas ideias.
+
+O que é o modo especialista:
+Quando o modo especialista está desativado, você tem acesso apenas a algumas configurações.
+As outras configurações estão ocultas e definidas com valores padrão, o que funciona na maioria das situações.
+Dessa forma, tentamos ajudar os usuários a entrar mais facilmente no Courseplay sem ficar sobrecarregado com todas as configurações.
+"/>
 		<!--Job Menu-->
 		<text name="CP_help_page_extendedJobMenu_title"													text="Estender menu AI"/>
 		<text name="CP_help_page_startJobMenuBase_text"													text="
@@ -533,7 +554,7 @@ Embalar fardos é muito simples. Carregue uma rota da sua enfardadeira e comece 
 inicie-o com o fardos coletar/embalar no HUD ou no Menu AI.
 		"/>
 		<text name="CP_help_page_wrapFunction_text"														text="
-Ao usar um curso, o motorista dirige com um deslocamento predefinido para que a coleta das embalagens esteja no meio do curso.
+Ao usar uma rota, o motorista dirige com um deslocamento predefinido para que a coleta das embalagens esteja no meio da rota.
 Sem uma rota, o Courseplay examina o campo em busca de fardos desembalados e usa o pathfinder para encontrar uma maneira de
 de buscar fardo mais próximo para embalar.
 O recuo automático se um fardo estiver na frente do veículo ou se estivermos muito perto da borda do campo deve evitar acidentes.		
@@ -542,6 +563,48 @@ O recuo automático se um fardo estiver na frente do veículo ou se estivermos m
 A coleta de fardos funciona da mesma forma, com ou sem rota.
 Quando o coletor estiver cheio, ele interromperá o trabalho e informará ao usuário que precisa ser descarregado. Se você tiver o AutoDrive
 instalado, você pode usá-lo para executar e descarregar o coletor de fardos automaticamente.
+"/>
+		<!--Symetric lange change-->
+		<text name="CP_help_page_symetricLaneChange_title"												text="Mudança de faixa simétrica"/>
+		<text name="CP_help_page_symetricLaneChangeBasic_text"											text="
+A mudança de faixa simétrica é usada em rotas multi implementos e informa ao motorista em qual faixa ele deve dirigir após a curva.
+Isso é um pouco difícil de entender, então vamos dar uma olhada em dois exemplos.
+"/>
+		<text name="CP_help_page_symetricLaneChangeExampleOff_text"										text="
+Quando a mudança de faixa simétrica é desativada, o veículo permanece em sua faixa de deslocamento.
+Isso significa que ele sempre dirige para a esquerda ou para a direita da rota.
+Isso garante que os veículos não estejam dirigindo lado a lado.
+Não haverá risco de conflito com outro motorista.
+"/>
+		<text name="CP_help_page_symetricLaneChangeExampleOn_text"										text="
+Se a mudança de faixa simétrica estiver ativada, a esquerda e a direita serão trocadas (mas não mostradas no HUD).
+Os veículos podem entrar em conflito uns com os outros, quando se dirigem um para o outro.
+Qual é a vantagem da mudança de faixa simétrica então?
+Se você der uma olhada na ordem das faixas, da esquerda para a direita, ficará claro:
+Sem mudança simétrica: esquerda, direita, esquerda, direita - é quase como pular uma faixa.
+Com mudança simétrica: esquerda, direita, direita, esquerda - da esquerda para a direita, uma faixa após a outra.
+No exemplo com a colheitadeira, significa que nenhuma colheitadeira terá frutas à esquerda e à direita de sua faixa
+"/>
+		<!--Info Panel-->
+		<text name="CP_help_page_infoPanel_title"														text="Painel Info"/>
+		<text name="CP_help_page_infoPanelBasic_text"													text="
+Este é o nosso Painel de Informações, ele pode ser movido com o mouse, assim como nosso Mini HUD.
+Além do nome e da versão do nosso Mod, também mostra informações de status sobre os veículos no CP.
+Ao passar o mouse sobre a mensagem de status, o nome do veículo será exibido.
+Ao clicar nele, você pode pular diretamente para o veículo.
+"/>
+<text name="CP_help_page_infoPanelMsg_text"																text="
+As Informações são as seguintes:
+- O motorista está preso
+- Está no trânsito
+- Deve ser reabastecido
+- Precisa ser reabastecido
+- Precisa ser reparado
+- Precisa ser recarregado
+- Precisa ser descarregado
+- Trabalho feito
+- Sem dinheiro
+- Esperando a chuva passar
 "/>
 		<!--Vine work-->
 		<text name="CP_help_page_vineWork_title"														text="Trabalho na videira"/>

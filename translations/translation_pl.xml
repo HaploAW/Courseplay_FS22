@@ -99,10 +99,10 @@
 		<text name="CP_vehicle_setting_avoidFruit_tooltip" 							  					text="Pracownik spróbuje uniknąć jazdy na skróty przez uprawy."/>
 
 		<text name="CP_vehicle_setting_toolOffsetX_title" 												text="Przes. poziome dla narzędzi"/>
-		<text name="CP_vehicle_setting_toolOffsetX_tooltip" 											text="Przesunięcie horyzontalne dla narzędzi."/>
+		<text name="CP_vehicle_setting_toolOffsetX_tooltip" 											text="Przesunięcie horyzontalne (poziome) dla narzędzi."/>
 
 		<text name="CP_vehicle_setting_toolOffsetZ_title" 												text="Przes. pionowe dla narzędzi"/>
-		<text name="CP_vehicle_setting_toolOffsetZ_tooltip" 											text="Przesunięcie wertykalne dla narzędzi."/>
+		<text name="CP_vehicle_setting_toolOffsetZ_tooltip" 											text="Przesunięcie wertykalne (pionowe) dla narzędzi."/>
 
 		<text name="CP_vehicle_setting_useAdditiveFillUnit_title"										text="Sprawdź dodatek do kiszenia"/>
 		<text name="CP_vehicle_setting_useAdditiveFillUnit_tooltip"										text="Jeśli aktywne i dodatek do zakiszania jest pusty, kierowca się zatrzyma."/>
@@ -240,8 +240,8 @@
 		<text name="CP_global_setting_title"															text="Ustawienia globalne"/>
 		<text name="CP_global_setting_subTitle_general"													text="Ustawienia podstawowe"/>
 
-		<text name="CP_global_setting_expertModeActive_title" 											text="Expert mode "/>
-		<text name="CP_global_setting_expertModeActive_tooltip" 										text="Enables/disables expert mode with additional features."/>
+		<text name="CP_global_setting_expertModeActive_title" 											text="Tryb zaawansowany"/>
+		<text name="CP_global_setting_expertModeActive_tooltip" 										text="Włącza/Wyłącza tryb zaawansowany z dodatkowymi funkcjami."/>
 
 		<text name="CP_global_setting_wageModifier_title" 												text="Wynagrodzenie pracowników CP"/>
 		<text name="CP_global_setting_wageModifier_tooltip" 											text="Procentowe wynagrodzenie pracowników CP względem zwykłych pracowników"/>
@@ -253,11 +253,11 @@
 		<text name="CP_global_setting_autoRepair_less_than_70" 											text="&lt; 70%"/>
 		<text name="CP_global_setting_autoRepair_always" 												text="Zawsze"/>
 
-		<text name="CP_global_setting_fuelThreshold_title" 												text="Fuel threshold"/>
-		<text name="CP_global_setting_fuelThreshold_tooltip" 											text="Driver will be released, if the fuel percentage is less."/>
+		<text name="CP_global_setting_fuelThreshold_title" 												text="Próg paliwa"/>
+		<text name="CP_global_setting_fuelThreshold_tooltip" 											text="Kierowca zostanie zwolniony, jeśli poziom paliwa spadnie poniżej ustawionego progu procentowego."/>
 
-		<text name="CP_global_setting_brokenThreshold_title" 											text="Broken threshold"/>
-		<text name="CP_global_setting_brokenThreshold_tooltip" 											text="Driver will be released, if the vehicle or an implement is more broken. 100% is off."/>
+		<text name="CP_global_setting_brokenThreshold_title" 											text="Próg zużycia"/>
+		<text name="CP_global_setting_brokenThreshold_tooltip" 											text="Kierowca zostanie zwolniony, jeśli pojazd lub maszyna/narzędzie jest uszkodzona w ustalonym progu procentowym. 100% oznacza wyłączone."/>
 
 		<text name="CP_global_setting_subTitle_userSettings"											text="Ustawienia użytkownika"/>
 
@@ -322,7 +322,7 @@
 		<text name="CP_courseManager_activate"															text="Potwierdź"/>
 
 	<!-- Info texts -->
-		<text name="CP_infoTexts_isStuck"																text="Pomocnik utknął"/>
+		<text name="CP_infoTexts_isStuck"																text="Utknął"/>
 		<text name="CP_infoTexts_isInTraffic"  															text="Jest w ruchu"/>
 		<text name="CP_infoTexts_shouldRefuel"															text="Powinien zostać zatankowany"/>
 		<text name="CP_infoTexts_needsFuel"  															text="Musi zostać zatankowany"/>
@@ -330,8 +330,8 @@
 		<text name="CP_infoTexts_needsFilling"  														text="Musi zostać załadowany"/>
 		<text name="CP_infoTexts_needsUnloading"  														text="Musi zostać rozładowany"/>
 		<text name="CP_infoTexts_workFinished"															text="Zakończył pracę"/>
-		<text name="CP_infoTexts_outOfMoney"															text="Ouf of money"/>
-		<text name="CP_infoTexts_waitForRainToFinish"													text="Waiting for rain to finish"/>
+		<text name="CP_infoTexts_outOfMoney"															text="Brak pieniędzy"/>
+		<text name="CP_infoTexts_waitForRainToFinish"													text="Oczekuje na koniec opadów"/>
 		
 	<!--Custom Field-->
 		<text name="CP_customFieldManager_confirm_save"													text="Czy chcesz zapisać nagrany kurs jako nowe pole %s?"/>
@@ -350,6 +350,27 @@
 		<text name="CP_help_title"																		text="Courseplay"/>
 		<!--This stays blank and is just to create blank spots for better overview in the menu-->
 		<text name="CP_help_page_blank"																	text=""/>
+		<!--General-->
+		<text name="CP_help_page_General_title"															text="General Information"/>
+		<text name="CP_help_page_GeneralBase_text"														text="
+Courseplay allows you to generate field courses with additional features, for example: headlands.
+It also enables the usage of balers and foragewagons, that can be send on the same course, as a mower or harvester from before.
+Another big feature is the collecting or wraping of bales on the field.
+New with this iteration of CP is the vine fieldwork.
+Fieldwork courses can be setup in multitool mode, which allows the use of up to 5 driver working in a convoy on the same field.
+It's also possible to have the combine unload in a trailer on/near the field automatically.
+Custom fieldborders can be assigned for courseplay to use, for example: in case of a meadow, which isn't recognised as a normal field.
+Lastly cp has a interface for Autodrive, which allows for refilling of a seeder at a nearby silo or unloading a foragewagon and so on.
+
+For more information please visit our github: https://github.com/Courseplay/Courseplay_FS22 .
+There you can get help or report any issue you've experienced.
+Finally we thank every translator and our community for reporting bugs, giving use feedback and new ideas.
+
+What is the expert Mode:
+When the expert Mode is deactivated, you have only access to some settings.
+The other settings are hidden and set to default values, which works in most situations.
+That way, we try to help Users to get easier into Courseplay without being overwhelmed from all the settings.
+"/>
 		<!--Job Menu-->
 		<text name="CP_help_page_extendedJobMenu_title"													text="Rozszerzone menu SI"/>
 		<text name="CP_help_page_startJobMenuBase_text"													text="
@@ -430,7 +451,7 @@ Lokalizacja zapisu plików kursu to: Dokumenty\My Games\FarmingSimulator2022\mod
 Menedżer kursu działa inaczej niż ten, do którego przywykłeś w FS19.
 Kursy zapisywane są w folderach, które wyświetlą się po lewej stronie. Oznacza to, że aby rozpocząć zapisywanie kursów, potrzebujesz co najmniej jednego folderu.
 Foldery można po prostu utworzyć, naciskając przycisk u dołu ekranu i wprowadzając nazwę.
-Courses are only saved localy for now.
+Na razie kursy są zapisywane tylko lokalnie.
 "/>
 
 		<text name="CP_help_page_courseManagerBaseFunctions_text"										text="
@@ -474,7 +495,7 @@ M: Pokazuje skopiowany kurs.
 N: Ten obszar pokazuje przesunięcie linii jeśli masz załadowany kurs dla wielu narzędzi. Kliknięcie na tekst przełącza pozycję.
 O: Rozpocznij/Zakończ nagrywanie nowego pola.
 P: Usuń kurs z pojazdu.
-Q: Zmienia widoczność kursu między: Włączony, Wyłaczony i tylko Start/Stop.
+Q: Zmienia widoczność kursu między: Włączony, Wyłączony i tylko Start/Stop.
 R: Usuwa skopiowany kurs ze schowka.
 "/>
 		<!--CustomField-->
@@ -540,6 +561,48 @@ Automatyczne cofanie, jeśli przed pojazdem znajduje się bela lub jeśli znajdu
 Zbieranie bel działa podobnie, z kursem lub bez.
 Gdy przyczepa jest pełna, zatrzyma pracę i poinformuje użytkownika, że należy go rozładować. Jeśli masz AutoDrive
 zainstalowany, możesz go użyć do automatycznego rozładunku.
+"/>
+		<!--Symetric lange change-->
+		<text name="CP_help_page_symetricLaneChange_title"												text="Symetric lange change"/>
+		<text name="CP_help_page_symetricLaneChangeBasic_text"											text="
+Symmetric lane change is used in multitool courses and tells the driver in which lane he has to drive after the turn.
+This is a bit hard to understand so let's have a look at two examples.
+"/>
+		<text name="CP_help_page_symetricLaneChangeExampleOff_text"										text="
+When the symmetric lane change is turned off, the vehicle stays on it's offset lane.
+That means he always drives left or right from the course.
+This ensures, that the helpers are not driving alongside each other.
+There won't be a risk of on conflict with another driver.
+"/>
+		<text name="CP_help_page_symetricLaneChangeExampleOn_text"										text="
+If symmetric lane change is turned on, left and right will be exchanged (but not shown in the HUD).
+Vehicles can conflict with each other, when they drive towards each other.
+What is the advantage of symmetric lange change then ?
+If you have a look at the order of the lanes, from left to right, it will be clear:
+Without symetric change: left, right, left, right - it is almost like skipping a lane.
+With symetric change: left, right, right, left - from left to right, one lane after the other.
+In the example with the Combine it means, no Combine will have fruit left and right of its lane.
+"/>
+		<!--Info Panel-->
+		<text name="CP_help_page_infoPanel_title"														text="Info panel"/>
+		<text name="CP_help_page_infoPanelBasic_text"													text="
+This is our Info Panel, it can be moved arround with the mouse courser, just like our Mini HUD.
+Beside the name and the version of our Mod, it also shows status inforamtions about the cp drivers.
+While hovering the status message, the name of the vehicle will be displayed.
+By clicking on it, you can jump directly into the vehicle.
+"/>
+<text name="CP_help_page_infoPanelMsg_text"																text="
+The Informations are the following:
+- Helper is stuck
+- Is in traffic
+- Should be refueled
+- Needs to be refueled
+- Needs to be repaired
+- Needs to be refilled
+- Needs to be unloaded
+- Finished work
+- Ouf of money
+- Waiting for rain to finish
 "/>
 		<!--Vine work-->
 		<text name="CP_help_page_vineWork_title"														text="Praca na winorośli"/>

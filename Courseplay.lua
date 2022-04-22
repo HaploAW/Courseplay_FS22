@@ -123,22 +123,30 @@ function Courseplay:setupGui()
 		return aiPage.currentHotspot ~= nil or aiPage.controlledVehicle ~= nil 
 	end
 	
+	--- As precision farming decided to be moved in between the normal map and the ai map,
+	--- we move it down one position.
+	local pos = g_modIsLoaded["FS22_precisionFarming"] and 4 or 3
+
 	CpGuiUtil.fixInGameMenuPage(vehicleSettingsFrame, "pageCpVehicleSettings",
-			{896, 0, 128, 128}, 3, predicateFunc)
+			{896, 0, 128, 128}, pos + 1, predicateFunc)
 	CpGuiUtil.fixInGameMenuPage(globalSettingsFrame, "pageCpGlobalSettings",
-			{768, 0, 128, 128}, 4, function () return true end)
+			{768, 0, 128, 128}, pos + 1, function () return true end)
 	CpGuiUtil.fixInGameMenuPage(courseManagerFrame, "pageCpCourseManager",
-			{256, 0, 128, 128}, 5, predicateFunc)
-	CpGuiUtil.fixInGameMenu()
+			{256, 0, 128, 128}, pos + 1, predicateFunc)
 	self.infoTextsHud = CpHudInfoTexts()
 
 end
 
 --- Adds cp help info to the in game help menu.
-function Courseplay:loadMapDataHelpLineManager(xmlFile, missionInfo)
-	self:loadFromXML(Utils.getFilename("config/HelpMenu.xml", Courseplay.BASE_DIRECTORY))
+function Courseplay:loadMapDataHelpLineManager(superFunc, ...)
+	local ret = superFunc(self, ...)
+	if ret then
+		self:loadFromXML(Utils.getFilename("config/HelpMenu.xml", Courseplay.BASE_DIRECTORY))
+		return true
+	end
+	return false
 end
-HelpLineManager.loadMapData = Utils.appendedFunction( HelpLineManager.loadMapData, Courseplay.loadMapDataHelpLineManager)
+HelpLineManager.loadMapData = Utils.overwrittenFunction( HelpLineManager.loadMapData, Courseplay.loadMapDataHelpLineManager)
 
 --- Saves all global data, for example global settings.
 function Courseplay.saveToXMLFile(missionInfo)
