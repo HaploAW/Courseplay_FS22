@@ -8,7 +8,7 @@
 
 <Settings prefixText="CP_vehicle_courseGeneratorSetting_" autoUpdateGui="true">
 	<SettingSubTitle title="basic">
-		<Setting classType="AIParameterSettingList" name="workWidth" min="1" max="50" incremental="0.1" unit="2" setDefault="setAutomaticWorkWidth" onChangeCallback="cpShowWorkWidth"/>
+		<Setting classType="AIParameterSettingList" name="workWidth" min="1" max="50" incremental="0.1" unit="2" setDefault="setAutomaticWorkWidthAndOffset" onChangeCallback="cpShowWorkWidth"/>
 		<Setting classType="AIParameterSettingList" name="multiTools" min="1" max="5" default="1"/>
 		<Setting classType="AIParameterSettingList" name="numberOfHeadlands" min="0" max="40"/>
 	</SettingSubTitle>
@@ -24,7 +24,7 @@
 				<Text>up_down_rows</Text>
 			</Texts>
 		</Setting>
-		<Setting classType="AIParameterSettingList" name="headlandCornerType" isExpertModeOnly="true" default="1">
+		<Setting classType="AIParameterSettingList" name="headlandCornerType" default="1">
 			<Values>
 				<Value name="HEADLAND_CORNER_TYPE_SMOOTH">1</Value> 
 				<Value name="HEADLAND_CORNER_TYPE_SHARP">2</Value> 

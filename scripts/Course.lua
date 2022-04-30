@@ -421,6 +421,7 @@ function Course:useTightTurnOffset(ix)
 end
 
 --- Returns the position of the waypoint at ix with the current offset applied.
+---@param ix number waypoint index
 ---@return number, number, number x, y, z
 function Course:getWaypointPosition(ix)
 	if self:isTurnStartAtIx(ix) then
@@ -843,12 +844,13 @@ function Course:getNextFwdWaypointIx(ix)
 	return ix
 end
 
-function Course:getNextFwdWaypointIxFromVehiclePosition(ix, vehicleNode, lookAheadDistance)
-	for i = ix, #self.waypoints do
+function Course:getNextFwdWaypointIxFromVehiclePosition(ix, vehicleNode, maxDx)
+	-- only look at the next few waypoints, we don't want to find anything far away, really, it should be in front of us
+	for i = ix, math.min(ix + 10, #self.waypoints) do
 		if not self:isReverseAt(i) then
 			local uX, uY, uZ = self:getWaypointPosition(i)
-			local _, _, z = worldToLocal(vehicleNode, uX, uY, uZ);
-			if z > lookAheadDistance then
+			local dx, _, dz = worldToLocal(vehicleNode, uX, uY, uZ);
+			if dz > 0 and math.abs(dx) < maxDx then
 				return i
 			end
 		end

@@ -62,6 +62,7 @@ end
 --- the most we need is an alignment course to lower the implements
 function AIDriveStrategyFieldWorkCourse:start(course, startIx, jobParameters)
     self:showAllInfo('Starting field work at waypoint %d', startIx)
+    self:updateFieldworkOffset(course)
     self.fieldWorkCourse = course
     -- remember at which waypoint we started, especially for the convoy
     self.startWaypointIx = startIx
@@ -124,7 +125,7 @@ end
 --- This is the interface to the Giant's AIFieldWorker specialization, telling it the direction and speed
 function AIDriveStrategyFieldWorkCourse:getDriveData(dt, vX, vY, vZ)
 
-    self:updateFieldworkOffset()
+    self:updateFieldworkOffset(self.course)
     self:updateLowFrequencyImplementControllers()
 
     local moveForwards = not self.ppc:isReversing()
@@ -260,7 +261,7 @@ end
 ---@param turnStartNode number at the last waypoint of the row, pointing in the direction of travel. This is where
 --- the implement should be raised when beginning a turn
 function AIDriveStrategyFieldWorkCourse:shouldRaiseThisImplement(object, turnStartNode)
-    local aiFrontMarker, _, aiBackMarker = WorkWidthUtil.getAIMarkers(object, nil, true)
+    local aiFrontMarker, _, aiBackMarker = WorkWidthUtil.getAIMarkers(object, true)
     -- if something (like a combine) does not have an AI marker it should not prevent from raising other implements
     -- like the header, which does have markers), therefore, return true here
     if not aiBackMarker or not aiFrontMarker then return true end
@@ -305,7 +306,7 @@ end
 ---@return boolean, boolean, number the second one is true when the first is valid, and the distance to the work start
 --- in meters (<0) when driving forward, nil when driving backwards.
 function AIDriveStrategyFieldWorkCourse:shouldLowerThisImplement(object, turnEndNode, reversing)
-    local aiLeftMarker, aiRightMarker, aiBackMarker = WorkWidthUtil.getAIMarkers(object, nil, true)
+    local aiLeftMarker, aiRightMarker, aiBackMarker = WorkWidthUtil.getAIMarkers(object, true)
     if not aiLeftMarker then return false, false, nil end
     local dxLeft, _, dzLeft = localToLocal(aiLeftMarker, turnEndNode, 0, 0, 0)
     local dxRight, _, dzRight = localToLocal(aiRightMarker, turnEndNode, 0, 0, 0)
@@ -354,7 +355,7 @@ function AIDriveStrategyFieldWorkCourse:areAllImplementsAligned(node)
 end
 
 function AIDriveStrategyFieldWorkCourse:isThisImplementAligned(object, node)
-    local aiFrontMarker, _, _ = WorkWidthUtil.getAIMarkers(object, nil, true)
+    local aiFrontMarker, _, _ = WorkWidthUtil.getAIMarkers(object, true)
     if not aiFrontMarker then return true end
     return CpMathUtil.isSameDirection(aiFrontMarker, node, 2)
 end
@@ -506,7 +507,8 @@ function AIDriveStrategyFieldWorkCourse:resumeFieldworkAfterTurn(ix, forceIx)
     self:lowerImplements()
     -- restore our own listeners for waypoint changes
     self.ppc:registerListeners(self, 'onWaypointPassed', 'onWaypointChange')
-    local startIx = forceIx and ix or self.course:getNextFwdWaypointIxFromVehiclePosition(ix, self.vehicle:getAIDirectionNode(), 0)
+    local startIx = forceIx and ix or self.course:getNextFwdWaypointIxFromVehiclePosition(ix,
+            self.vehicle:getAIDirectionNode(), self.workWidth / 2)
     self:startCourse(self.course, startIx)
 end
 
@@ -575,14 +577,6 @@ function AIDriveStrategyFieldWorkCourse:getBestWaypointToContinueFieldWork()
     end
     self:debug('Best return to fieldwork waypoint is %d', bestWpIx)
     return bestWpIx
-end
-
---- We already set the offsets on the course at start, this is to update those values
--- if the user changed them during the run or the AI driver wants to add an offset
-function AIDriveStrategyFieldWorkCourse:updateFieldworkOffset()
-    self.course:setOffset(
-        self.settings.toolOffsetX:getValue() + self.aiOffsetX + (self.tightTurnOffset or 0),
-        0 + self.aiOffsetZ)
 end
 
 function AIDriveStrategyFieldWorkCourse:setOffsetX()
