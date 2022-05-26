@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="no" ?>
 <modDesc descVersion="64">
-    <version>7.0.1.14</version>
+    <version>7.0.1.16</version>
 	<author><![CDATA[Courseplay.devTeam]]></author>
 	<title>
 		<en>CoursePlay</en>
@@ -87,6 +87,7 @@ Ein ganz großes Danke geht an unsere Übersetzer und an die Community für die 
 		<sourceFile filename="scripts/pathfinder/PathfinderUtil.lua"/>
 		<sourceFile filename="scripts/ai/AIUtil.lua"/>
 		<sourceFile filename="scripts/ai/ImplementUtil.lua"/>
+		<sourceFile filename="scripts/ai/ProximityController.lua"/>
 		<sourceFile filename="scripts/ai/FieldWorkerProximityController.lua"/>
 		<sourceFile filename="scripts/ai/turns/AITurn.lua"/>
 		<sourceFile filename="scripts/ai/turns/Corner.lua"/>

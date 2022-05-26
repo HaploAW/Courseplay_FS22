@@ -118,9 +118,7 @@ function Courseplay:setupGui()
 	g_gui:loadGui(Utils.getFilename("config/gui/CourseManagerFrame.xml", Courseplay.BASE_DIRECTORY),
 				 "CpCourseManagerFrame", courseManagerFrame, true)
 	local function predicateFunc()
-		local inGameMenu = g_gui.screenControllers[InGameMenu]
-		local aiPage = inGameMenu.pageAI
-		return aiPage.currentHotspot ~= nil or aiPage.controlledVehicle ~= nil 
+		return CpInGameMenuAIFrameExtended.getVehicle() ~= nil
 	end
 	
 	--- As precision farming decided to be moved in between the normal map and the ai map,
@@ -305,6 +303,7 @@ function Courseplay:registerConsoleCommands()
 	addConsoleCommand( 'printVehicleVariable', 'Print g_currentMission.controlledVehicle.variable', 'printVehicleVariable', self )
 	addConsoleCommand( 'printImplementVariable', 'printImplementVariable <implement index> <variable>', 'printImplementVariable', self )
 	addConsoleCommand( 'printStrategyVariable', 'Print a CP drive strategy variable', 'printStrategyVariable', self )
+	addConsoleCommand( 'printAiPageVariable', 'Print a in game menu ai page variable.', 'printAiPageVariable', self )
 	addConsoleCommand( 'cpLoadFile', 'Load a lua file', 'loadFile', self )
 	addConsoleCommand( 'cpToggleDevHelper', 'Toggle development helper visual debug info', 'toggleDevHelper', self )
 	addConsoleCommand( 'cpSaveAllFields', 'Save all fields of the map to an XML file for offline debugging', 'cpSaveAllFields', self )
@@ -312,6 +311,8 @@ function Courseplay:registerConsoleCommands()
 	addConsoleCommand( 'cpSaveAllVehiclePositions', 'Save the position of all vehicles', 'cpSaveAllVehiclePositions', self)
 	addConsoleCommand( 'cpRestoreAllVehiclePositions', 'Restore the position of all vehicles', 'cpRestoreAllVehiclePositions', self)
 	addConsoleCommand( 'cpSetPathfinderDebug', 'Set pathfinder visual debug level (0-2)', 'cpSetPathfinderDebug', self )
+	addConsoleCommand( 'cpFreeze', 'Freeze the CP driver', 'cpFreeze', self )
+	addConsoleCommand( 'cpUnfreeze', 'Unfreeze the CP driver', 'cpUnfreeze', self )
 
 end
 
@@ -395,6 +396,11 @@ function Courseplay:printGlobalCpVariable(variableName, maxDepth, printToXML, pr
 	end
 end
 
+function Courseplay:printAiPageVariable(variableName, maxDepth, printToXML, printToSeparateXmlFiles)
+	local prefix = 'g_currentMission.inGameMenu.pageAI'
+	self:printVariableInternal( prefix, variableName, maxDepth, printToXML, printToSeparateXmlFiles)
+end
+
 --- Load a Lua file
 --- This is to reload scripts without restarting the game.
 function Courseplay:loadFile(fileName)
@@ -440,6 +446,15 @@ end
 function Courseplay:cpSetPathfinderDebug(d)
 	PathfinderUtil.setVisualDebug(tonumber(d))
 end
+
+function Courseplay:cpFreeze()
+	g_currentMission.controlledVehicle:freezeCp()
+end
+
+function Courseplay:cpUnfreeze()
+	g_currentMission.controlledVehicle:unfreezeCp()
+end
+
 
 function Courseplay.info(...)
 	local updateLoopIndex = g_updateLoopIndex and g_updateLoopIndex or 0

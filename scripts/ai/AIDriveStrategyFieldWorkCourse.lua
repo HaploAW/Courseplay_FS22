@@ -172,8 +172,11 @@ function AIDriveStrategyFieldWorkCourse:getDriveData(dt, vX, vY, vZ)
     elseif self.state == self.states.ON_CONNECTING_TRACK then
         self:setMaxSpeed(self.settings.fieldSpeed:getValue())
     end
+
     self:setAITarget()
     self:limitSpeed()
+    self:checkProximitySensors()
+
     -- keep away from others working on the same course
     self:setMaxSpeed(self.fieldWorkerProximityController:getMaxSpeed(self.settings.convoyDistance:getValue(), self.maxSpeed))
 
@@ -206,7 +209,7 @@ function AIDriveStrategyFieldWorkCourse:initializeImplementControllers(vehicle)
         self.states.TURNING,
         self.states.DRIVING_TO_WORK_START_WAYPOINT
     }
-    self:addImplementController(vehicle, BalerController, Baler, defaultDisabledStates)
+    self:addImplementController(vehicle, BalerController, Baler, {})
     self:addImplementController(vehicle, BaleWrapperController, BaleWrapper, defaultDisabledStates)
     self:addImplementController(vehicle, BaleLoaderController, BaleLoader, defaultDisabledStates)
 
@@ -444,6 +447,10 @@ function AIDriveStrategyFieldWorkCourse:startTurn(ix)
     self.state = self.states.TURNING
 end
 
+function AIDriveStrategyFieldWorkCourse:isTurning()
+    return self.state == self.states.TURNING    
+end
+
 -----------------------------------------------------------------------------------------------------------------------
 --- State changes
 -----------------------------------------------------------------------------------------------------------------------
@@ -581,6 +588,10 @@ end
 
 function AIDriveStrategyFieldWorkCourse:setOffsetX()
     -- do nothing by default
+end
+
+function AIDriveStrategyFieldWorkCourse:isWorking()
+    return self.state == self.states.WORKING or self.state == self.states.TURNING
 end
 
 --- Gets the current ridge marker state.
